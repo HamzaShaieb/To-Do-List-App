@@ -1,3 +1,12 @@
+ 
+
+/* Start Variables */
+:root {
+    --radius_value:15px;
+    --font-size-value:1.5rem;
+}
+/* End Vraiables */
+/* Start Globales Rules */
 *{
     box-sizing: border-box;
     padding: 0;
@@ -9,6 +18,8 @@ body {
     background-color: #0084B7;
     padding-top: 0;
 }
+/* End Globles Rules */
+/* Start Main Container */
 .container {
     height: 100vh;
     width: 100vw;
@@ -32,8 +43,8 @@ body {
 .container .input_ariea input{
     padding: 1rem;
     width: 100%;
-    font-size: 1rem;
-    border-radius: 15px;
+    font-size: var(--font-size-value);
+    border-radius: var(--radius_value);
     outline: none;
     border: none;
 }
@@ -48,4 +59,49 @@ body {
     background-color: #77ff38;
     
 }
+.container  ul {
+    background-color: white;
+    list-style: none;
+    width: 50%;
+    border-radius:var(--radius_value) ;
+    padding: 10px;
+    font-size: var(--font-size-value);
+    margin-top: 5px;
+    cursor: pointer;
+}
+.container  ul li {
+    margin-bottom: 20px;
+    border-bottom: 1px solid rgb(154, 205, 249);
+    padding: 5px 30px 5px;
+}
+.container  ul li:last-child {
+    margin-bottom: 20px;
+    border-bottom: none;
+}
+
+.container  ul li:hover {
+    background-color: rgb(154, 205, 249);
+    color: white;
+}
+.container  ul li.checked {
+    text-decoration: line-through;
+    text-decoration-color: red;
+    background-color: gray;
+    color: white;
+    position: relative;
+
+}
+.container  ul li.checked::before {
+    content: "";
+    position: absolute;
+    border-width: 0 2px 2px 0;
+    border-color: red;
+    border-style: solid;
+    height: 20px;
+    width: 10px;
+    left:10px ;
+    top: 50%;
+    transform: translateY(-60%) rotate(45deg);
+}
+/* End Main Container */
 
