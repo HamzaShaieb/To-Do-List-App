@@ -1,4 +1,4 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -35,18 +35,39 @@
                 ev.target.classList.toggle("checked")
             }
         })
+        /* Crete a close button and add to each list elementes */
+        let lists_ele = document.getElementsByTagName("li")
+        for (i=0 ; i < lists_ele.length; i++){
+        let close = document.createElement("span")
+        let text = document.createTextNode("Close")
+        close.className ="closed"
+        close.appendChild(text) 
+        lists_ele[i].appendChild(close)}
+        /* Delte The Element When Clicken in the close button */
+        let closed_buttons = document.getElementsByClassName("closed")
+        console.log(closed_buttons)
+        for ( i = 0 ; i < closed_buttons.length ;i++ ){
+           closed_buttons[i].onclick() = function(){
+            this.parentElement.style.diplay ="none"
+           }
+        }
+
         /* 2-Add New List  */
         function Add_Li(){
             let input_li = document.getElementById("input_li").value
             if (input_li == ""){
-                alert("You Nedd To Write Somthing")
+                alert("You Need To Write Somthing")
             }else { 
-            let newli = document.createElement("li")
+            var newli = document.createElement("li")
             let text = document.createTextNode(input_li)
             newli.appendChild(text)
             ul.appendChild(newli)
-            document.getElementById("input_li").value = " " 
-             }
+            document.getElementById("input_li").value = " " }
+            let close = document.createElement("span")
+            let text_span = document.createTextNode("Close")
+            close.className ="closed"
+            close.appendChild(text_span) 
+            newli.appendChild(close) 
         }
     </script>
     <!--End The Javascript Code-->
