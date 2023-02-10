@@ -43,18 +43,23 @@
         close.className ="closed"
         close.appendChild(text) 
         lists_ele[i].appendChild(close)}
-        /* Delte The Element When Clicken in the close button */
+        /* Delte The Element When Clicking in the close button */
         let closed_buttons = document.getElementsByClassName("closed")
         console.log(closed_buttons)
         for ( i = 0 ; i < closed_buttons.length ;i++ ){
-           closed_buttons[i].onclick() = function(){
-            this.parentElement.style.diplay ="none"
-           }
+           closed_buttons[i].addEventListener("click",(e)=>{
+            if (confirm("Are Shure To Delte This ")){
+                let parent_div = e.target.parentElement
+                parent_div.style.display ="none"
+            }
+             
+           })
         }
 
         /* 2-Add New List  */
         function Add_Li(){
             let input_li = document.getElementById("input_li").value
+
             if (input_li == ""){
                 alert("You Need To Write Somthing")
             }else { 
@@ -62,12 +67,22 @@
             let text = document.createTextNode(input_li)
             newli.appendChild(text)
             ul.appendChild(newli)
-            document.getElementById("input_li").value = " " }
+            document.getElementById("input_li").value = " " 
+            }
+
             let close = document.createElement("span")
             let text_span = document.createTextNode("Close")
             close.className ="closed"
             close.appendChild(text_span) 
             newli.appendChild(close) 
+
+            close.addEventListener("click",(e)=>{
+                if (confirm("Are You Sure To Delete This ?")){
+                    let parent_div = e.target.parentElement
+                    parent_div.style.display = "none"
+                }
+               
+            })
         }
     </script>
     <!--End The Javascript Code-->
